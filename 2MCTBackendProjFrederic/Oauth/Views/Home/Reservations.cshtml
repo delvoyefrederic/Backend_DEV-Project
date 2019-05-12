@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Models.BackendDTO.TblReservationDTO>
+
+@{
+    ViewData["Title"] = "Reservations";
+}
+
+<h1>Reservations</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Evenement Name</th>
+            <th>
+                Price
+            </th>
+            <th>
+                Type Ticket
+            </th>
+            <th>
+                SeatNumber
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(ModelItem => item.MusicEvement.MusicEvenementName)
+            </td>
+            <td>
+                € @Html.DisplayFor(ModelItem => item.Price.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(ModelItem => item.Price.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(ModelItem => item.Seat.SeatNumber)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

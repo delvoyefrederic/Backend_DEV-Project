@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>AdminBoard</h1>
+
+<div>
+    <h2 class="small">You are now on the admin page</h2>
+    <p>Here you can check festivals/users and reservations also you can edit user their roles and create a new role</p>
+    <a class="btn btn-block bg-primary text-light" asp-controller="Admin" asp-action="FestivalList">Festivals</a>
+    <a class="btn btn-block bg-primary text-light" asp-controller="Admin" asp-action="UsersList">Users</a>
+    <a class="btn btn-block bg-primary text-light" asp-controller="Admin" asp-action="AddNewRole">Create a new Role</a>
+</div>
