@@ -25,8 +25,10 @@ namespace API.Repositories
                 MusicEvement = new TblFestivalsDTO()
                 {
                     MusicEvenementName = y.MusicEvement.MusicEvenementName,
-                    Price = y.Price.Price,
-                    Name = y.Price.TypeNavigation.Name
+                    Price = new TblPriceDTO() {
+                        Price = y.Price.Price,
+                        Name = y.Price.TypeNavigation.Name
+                    }
 
                     
                 },
@@ -78,11 +80,13 @@ namespace API.Repositories
                     MusicEvement = new TblFestivalsDTO()
                     {
                         MusicEvenementName = c.MusicEvement.MusicEvenementName,
-                        Price = c.Price.Price,
-                        Name = c.Price.TypeNavigation.Name
-
-
+                        Price = new TblPriceDTO()
+                        {
+                           Price = c.Price.Price,
+                           Name = c.Price.TypeNavigation.Name
+                        }
                     },
+                       
                     Price = new TblPriceDTO()
                     {
                         Price = c.Price.Price,

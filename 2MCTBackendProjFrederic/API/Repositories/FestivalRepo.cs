@@ -69,8 +69,10 @@ namespace API.Repositories
             {
                 var FestivalsResults = _backendProjContext.TblFestivals.Include(x => x.TblPrice).ThenInclude(y => y.TypeNavigation).OrderBy(x => x.MusicEvenementName).Select(x => new TblFestivalsDTO {
                     MusicEvenementName = x.MusicEvenementName,
-                    Name = x.TblPrice.Where(e => e.Priceid == x.PriceListid).Select(xa => xa.TypeNavigation.Name).FirstOrDefault(),
-                    Price = x.TblPrice.Where(e => e.Priceid == x.PriceListid).Select(y => y.Price).FirstOrDefault(),
+                    tblPriceDTOs =  x.TblPrice.Where(e => e.MusicEvenementId == x.MusicEvenementId).Select(y => new TblPriceDTO() {
+                        Name = y.TypeNavigation.Name,
+                        Price = y.Price
+                    }).ToList(),
                     MaxSeatNumbers = x.MaxSeatNumbers
                 }).ToList();
                 if(FestivalsResults != null)
